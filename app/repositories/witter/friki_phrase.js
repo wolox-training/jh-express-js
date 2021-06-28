@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-const API_URL = 'https://geek-jokes.sameerkumar.website/api?format=json';
+const API_WEETS_URL = require('../../../config').common.api.weets.url;
 
 exports.frikiPhraseRepository = {
   getPhrase: async () => {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(API_WEETS_URL);
 
     return response.data.joke;
   }
