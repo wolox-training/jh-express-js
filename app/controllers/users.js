@@ -1,14 +1,16 @@
 const logger = require('../logger');
 
+const { mapToUserModel } = require('../mappers/users');
+
 const { registerUser } = require('../services/users');
 
 exports.createUser = async (req, res) => {
-  const { first_name, last_name, email, password } = req.body;
+  const { firstName, lastName, email, password } = mapToUserModel(req.body);
 
   try {
-    await registerUser({ first_name, last_name, email, password });
+    await registerUser({ firstName, lastName, email, password });
 
-    const message = `The user '${first_name} ${last_name}' was created.`;
+    const message = `The user '${firstName} ${lastName}' was created.`;
 
     logger.info(message);
 

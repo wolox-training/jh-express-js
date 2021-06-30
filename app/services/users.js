@@ -2,7 +2,7 @@ const { hashPassword } = require('../helpers/security');
 
 const { User } = require('../models');
 
-exports.registerUser = async ({ first_name, last_name, email, password }) => {
+exports.registerUser = async ({ firstName, lastName, email, password }) => {
   const existsEmail = await User.findOne({ where: { email } });
 
   if (existsEmail) {
@@ -11,5 +11,5 @@ exports.registerUser = async ({ first_name, last_name, email, password }) => {
 
   const encryptedPassword = await hashPassword(password);
 
-  await User.create({ first_name, last_name, email, password: encryptedPassword });
+  await User.create({ firstName, lastName, email, password: encryptedPassword });
 };
