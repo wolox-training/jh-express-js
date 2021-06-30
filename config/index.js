@@ -32,6 +32,9 @@ const config = {
       password: process.env.DB_PASSWORD
     },
     api: {
+      weets: {
+        url: process.env.API_WEETS_URL
+      },
       bodySizeLimit: process.env.API_BODY_SIZE_LIMIT,
       parameterLimit: process.env.API_PARAMETER_LIMIT,
       port: process.env.PORT
