@@ -4,7 +4,7 @@ const { mapToUserModel } = require('../mappers/users');
 
 const { registerUser } = require('../services/users');
 
-exports.createUser = async (req, res) => {
+exports.createUser = async (req, res, next) => {
   const { firstName, lastName, email, password } = mapToUserModel(req.body);
 
   try {
@@ -14,16 +14,10 @@ exports.createUser = async (req, res) => {
 
     logger.info(message);
 
-    res.status(201).json({
-      hasErrors: false,
-      message
-    });
+    res.status(201).json({ message });
   } catch (error) {
     logger.error(error);
 
-    res.status(422).json({
-      hasErrors: true,
-      message: error.message
-    });
+    next(error);
   }
 };

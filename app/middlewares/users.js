@@ -25,9 +25,6 @@ exports.registerUser = (req, res, next) => {
 
     next();
   } catch (error) {
-    res.status(400).json({
-      hasErrors: true,
-      message: error.message
-    });
+    next(error);
   }
 };
