@@ -10,23 +10,19 @@ module.exports = {
       },
       first_name: {
         type: Sequelize.STRING,
-        defaultValue: false,
         allowNull: false
       },
       last_name: {
         type: Sequelize.STRING,
-        defaultValue: false,
         allowNull: false
       },
       email: {
         type: Sequelize.STRING,
-        defaultValue: false,
         allowNull: false,
         unique: true
       },
       password: {
         type: Sequelize.STRING,
-        defaultValue: false,
         allowNull: false
       }
     }),
